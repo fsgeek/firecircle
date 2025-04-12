@@ -17,8 +17,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Dialogue state management
   - Dialogue phase transitions
 - Comprehensive test suite for Memory Store and Orchestrator
-- Example dialogue script demonstrating core functionality
-- Console script entry point for running the demo
+- Example dialogue scripts:
+  - Simple dialogue demonstrating core functionality
+  - Comparative dialogue between different AI models
+- Console script entry points for running examples
+- Unit tests for OpenAI and Anthropic adapters
 
 ### Changed
 - Updated README with installation and usage instructions

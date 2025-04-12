@@ -65,12 +65,16 @@ python -m firecircle.adapters.cli list
 python -m firecircle.adapters.cli test --provider openai --message "Tell me about Ayni" --stream
 ```
 
-#### Running a Simple Dialogue
+#### Running Example Dialogues
 
-Run the example dialogue:
+**Simple Dialogue:**
 
 ```bash
+# Run the basic dialogue example
 python -m firecircle.examples.simple_dialogue
+
+# Alternatively, use the console script
+firecircle-demo
 ```
 
 This example demonstrates:
@@ -78,6 +82,22 @@ This example demonstrates:
 - Configuring turn-taking policies
 - Handling message flow between participants
 - Transitioning between dialogue phases
+
+**Comparative Dialogue:**
+
+```bash
+# Run the comparative dialogue between models
+python -m firecircle.examples.comparative_dialogue
+
+# Alternatively, use the console script with a topic number (0-3)
+firecircle-compare --topic 2
+```
+
+This example demonstrates:
+- Connecting to multiple AI providers simultaneously
+- Running a structured dialogue between different models (GPT-4 and Claude)
+- Comparing responses to the same prompts
+- Using the Memory Store to save dialogue history
 
 ### Running Tests
 
