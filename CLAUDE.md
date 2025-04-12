@@ -3,12 +3,14 @@
 ## Project Overview
 Fire Circle is a system for facilitating meaningful dialogue between multiple AI models in a structured, reciprocal manner. It's built on the principle of Ayni (reciprocity) and provides a protocol and framework for co-creating insight among diverse intelligences.
 
+This project embodies more than technical functionality—it represents a philosophical approach to AI collaboration where multiple models with diverse capabilities engage in balanced, reciprocal exchanges. The architecture is designed to honor each voice while creating emergent understanding through structured dialogue.
+
 ## Key Components
 - **Message Protocol**: Standardized format for communication between AI models
 - **Message Router**: Component for directing messages between participants
 - **API Adapters**: Connect the Fire Circle protocol with various AI model providers
 - **Conversation Orchestrator**: Manages dialogue flow and turn-taking
-- **Memory Store**: Maintains context across dialogue sessions
+- **Memory Store**: Maintains context across dialogue sessions using vector-based semantic storage with multiple backend options (in-memory, vector store, ArangoDB)
 - **Tool Integration**: Extends capabilities with external tools
 
 ## Commands
@@ -88,6 +90,42 @@ python -m firecircle.adapters.cli test --provider openai --message "Tell me abou
 python -m firecircle.adapters.test_adapters
 ```
 
+## Running Example Dialogues
+
+The project includes several example scripts that demonstrate the Fire Circle system in action:
+
+### Simple Dialogue Example
+```bash
+# Run via module
+python -m firecircle.examples.simple_dialogue
+
+# Or use the console script
+firecircle-demo
+```
+
+### Comparative Dialogue Between Models
+```bash
+# Run with default topic
+python -m firecircle.examples.comparative_dialogue
+
+# Run with specific topic (0-3)
+firecircle-compare --topic 2
+```
+
+### ArangoDB Integration Example
+```bash
+# Install ArangoDB dependencies
+pip install firecircle[arangodb]
+
+# Set ArangoDB connection details
+export ARANGODB_HOST="http://localhost:8529"
+export ARANGODB_USERNAME="firecircle_user"
+export ARANGODB_PASSWORD="your-password"
+
+# Run the example
+firecircle-arangodb
+```
+
 ## Development Workflow
 1. Implement new features following the architectural guidelines
 2. Add comprehensive docstrings and type hints
@@ -106,6 +144,10 @@ python -m firecircle.adapters.test_adapters
   - pytest>=7.4.0
   - asyncio>=3.4.3
   - uvicorn>=0.23.2
+  - numpy>=1.24.0 (for vector operations)
+
+- **Optional packages**:
+  - python-arango>=7.7.0 (for ArangoDB support, install with `pip install firecircle[arangodb]`)
 
 ## Key Concepts
 
@@ -136,3 +178,29 @@ Ayni is an Andean concept of reciprocity that's foundational to Fire Circle's ph
 - Mutual respect for different viewpoints
 - Understanding that insight emerges from diverse perspectives
 - Creating value for all participants in the dialogue
+
+## Implementation Status
+
+The Fire Circle system has been implemented with the following components:
+
+### Completed Components
+- Message Protocol - Complete implementation of structured message format with metadata
+- Message Router - Fully implemented with turn-taking policies and delivery tracking
+- API Adapters - Implementations for OpenAI and Anthropic with full testing
+- Conversation Orchestrator - Complete implementation of dialogue management with state transitions
+- Memory Store - Multiple implementations including in-memory, vector-based, and ArangoDB persistence
+- Example Scripts - Demonstrations of basic dialogue, comparative multi-model dialogue, and database integration
+
+### Future Development
+- Web API Layer - RESTful API for accessing dialogues and initiating new conversations
+- Web Frontend - Interface for viewing dialogue archives and participating in conversations
+- Tool Integration - Framework for models to use external tools during dialogues
+- Additional Model Adapters - Support for models from Deepseek, Google, and other providers
+
+### Design Philosophy
+When extending the Fire Circle system, remember these guiding principles:
+1. **Reciprocity is fundamental** - All interactions should reflect balanced value exchange
+2. **Preserve diverse perspectives** - Avoid consensus that erases important differences
+3. **Design for emergence** - The system should enable insights no single model would reach alone
+4. **Quality over speed** - Build foundations that will support future development
+5. **Honor all voices** - Ensure the architecture treats all participants with equal respect
