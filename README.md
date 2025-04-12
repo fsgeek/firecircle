@@ -99,6 +99,30 @@ This example demonstrates:
 - Comparing responses to the same prompts
 - Using the Memory Store to save dialogue history
 
+**ArangoDB Integration:**
+
+```bash
+# Install ArangoDB dependencies
+pip install firecircle[arangodb]
+
+# Set connection environment variables (optional)
+export ARANGODB_HOST="http://localhost:8529"
+export ARANGODB_USERNAME="root" 
+export ARANGODB_PASSWORD="password"
+
+# Run the ArangoDB example
+python -m firecircle.examples.arangodb_example
+
+# Alternatively, use the console script
+firecircle-arangodb
+```
+
+This example demonstrates:
+- Connecting to ArangoDB for persistent storage
+- Storing and retrieving dialogues and messages
+- Performing semantic search across conversations
+- Managing dialogue relationships
+
 ### Running Tests
 
 Run the test suite:
@@ -135,6 +159,10 @@ The Fire Circle system follows these architectural principles:
 - Provides vector-based semantic storage and retrieval
 - Maintains conversation history and enables context-aware responses
 - Supports searching for related dialogues and messages
+- Multiple implementations:
+  - In-memory store for development and testing
+  - Vector store for local embeddings
+  - ArangoDB store for production use with persistence
 
 ### Dialogue Management
 

@@ -33,6 +33,10 @@ dependencies = [
     "httpx>=0.25.0",
 ]
 
+# Optional dependencies
+[project.optional-dependencies]
+arangodb = ["python-arango>=7.7.0"]
+
 [project.urls]
 "Homepage" = "https://github.com/fsgeek/firecircle"
 "Bug Tracker" = "https://github.com/fsgeek/firecircle/issues"
@@ -40,6 +44,7 @@ dependencies = [
 [project.scripts]
 firecircle-demo = "firecircle.examples.simple_dialogue:main"
 firecircle-compare = "firecircle.examples.comparative_dialogue:main"
+firecircle-arangodb = "firecircle.examples.arangodb_example:main"
 
 [tool.pytest.ini_options]
 pythonpath = ["."]

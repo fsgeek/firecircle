@@ -8,10 +8,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added
-- Initial Memory Store implementation
+- Memory Store implementations
   - Abstract base class defining the storage interface
   - In-memory implementation for development and testing
   - Vector-based implementation with semantic search capabilities
+  - ArangoDB implementation for production persistence
 - Conversation Orchestrator implementation
   - Turn-taking policies (round-robin, facilitator, free-form, etc.)
   - Dialogue state management

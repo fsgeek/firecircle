@@ -9,4 +9,10 @@ from firecircle.memory.base import MemoryStore
 from firecircle.memory.vector_store import VectorMemoryStore
 from firecircle.memory.inmemory import InMemoryStore
 
-__all__ = ["MemoryStore", "VectorMemoryStore", "InMemoryStore"]
+# Import ArangoDB store conditionally to handle missing dependencies
+try:
+    from firecircle.memory.arangodb_store import ArangoDBStore
+    __all__ = ["MemoryStore", "VectorMemoryStore", "InMemoryStore", "ArangoDBStore"]
+except ImportError:
+    # ArangoDB dependencies not available
+    __all__ = ["MemoryStore", "VectorMemoryStore", "InMemoryStore"]
